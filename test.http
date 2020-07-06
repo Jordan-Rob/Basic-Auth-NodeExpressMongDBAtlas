@@ -1,0 +1,8 @@
+POST http://localhost:3000/api/auth/signup http/1.1
+Content-Type: application/json
+
+{
+    "username":"james",
+    "email":"james@bond.com",
+    "password":"casinoroyale"
+}
