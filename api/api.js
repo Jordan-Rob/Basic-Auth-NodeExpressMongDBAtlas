@@ -10,6 +10,11 @@ router.post('/signup', async (request, response) => {
         return response.status(400).send(error.details[0].message)
     }
 
+    const existingEmail = await user.findOne({ email: request.body.email })
+    if (existingEmail) {
+        return response.status(400).send('Email already in use!')
+    }
+
     const saltPassword = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(request.body.password, saltPassword)
 
