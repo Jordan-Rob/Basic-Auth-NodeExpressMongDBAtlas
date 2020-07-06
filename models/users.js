@@ -12,6 +12,10 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         min: 5
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 })
 
